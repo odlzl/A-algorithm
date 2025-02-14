@@ -97,7 +97,7 @@ def optimal_solver(start, final, size, heuristic_function, max_time=60):
     return -1, nodes_expanded
 
 def generate_random_puzzle(size):
-    """Generates a random solvable puzzle."""
+    "Generates a random solvable puzzle."
     board = list(range(size * size))
     random.shuffle(board)
     return board if is_solvable(board, size) else generate_random_puzzle(size)
@@ -112,7 +112,7 @@ def is_solvable(board, size):
         return (inv_count + blank_row) % 2 == 1
 
 def run_experiment(size):
-    """Runs A* on a limited number of random puzzles and calculates average steps/nodes expanded."""
+    "Runs A* on a limited number of random puzzles and calculates average steps/nodes expanded."
     heuristics = {
         "h1 (Misplaced Tiles)": count_misplaced_tiles,
         "h2 (Manhattan Distance)": manhattan_distance_calc,
@@ -131,7 +131,7 @@ def run_experiment(size):
                 results[h_name]["steps"] += steps
                 results[h_name]["nodes"] += nodes
 
-    print(f"\nRunning experiments for {size * size - 1}-puzzle...\n")
+    print(f"\n8-puzzle...\n")
     print(f"{'Puzzle Type':<12}{'Heuristic':<25}{'Avg Steps':<15}{'Nodes Expanded':<15}")
     print("-" * 65)
 
