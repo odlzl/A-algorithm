@@ -132,13 +132,14 @@ def run_experiment(size):
                 results[h_name]["nodes"] += nodes
 
     print(f"\n8-puzzle...\n")
-    print(f"{'Puzzle Type':<12}{'Heuristic':<25}{'Avg Steps':<15}{'Nodes Expanded':<15}")
-    print("-" * 65)
+    print(f"{'Puzzle Type':<12}{'Heuristic':<25}{'Average Steps to Solution':<30}{'Average Nodes Expanded':<20}")
+    print("-" * 84)
 
     for h_name in heuristics:
         avg_steps = results[h_name]["steps"] / 10 if results[h_name]["steps"] > 0 else 0
         avg_nodes = results[h_name]["nodes"] / 10 if results[h_name]["nodes"] > 0 else 0
-        print(f"{size * size - 1}-puzzle   {h_name:<25} {avg_steps:<15.2f} {avg_nodes:<15.2f}")
+        print(f"{size * size - 1}-puzzle   {h_name:<25} {avg_steps:<30.2f} {avg_nodes:<20.2f}")
 
 if __name__ == "__main__":
     run_experiment(3)  # 8puzzle
+
